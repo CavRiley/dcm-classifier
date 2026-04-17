@@ -1,8 +1,7 @@
 name: Publish conda package to prefix.dev
 on:
-  push:
-    tags:
-      - "v*"
+  release:
+    types: [published]
 
 jobs:
   build-and-publish:
