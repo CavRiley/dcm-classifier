@@ -176,6 +176,7 @@ extend-exclude = '''
 [tool.pixi.workspace]
 channels = ["conda-forge"]
 platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+preview = ["pixi-build"]
 
 # Runtime conda deps (mirrors [project.dependencies] using conda-forge names)
 # NOTE: itk and itk-* sub-packages are not available on conda-forge for
@@ -226,3 +227,18 @@ test = "pytest"
 lint = "pre-commit run --all-files"
 format = "black src/ tests/"
 build = "python -m build"
+
+# ---------------------------------------------------------------------------
+# Pixi build — produces a conda package via pixi-build-python
+# (requires preview = ["pixi-build"] in [tool.pixi.workspace])
+# ---------------------------------------------------------------------------
+[tool.pixi.package]
+name = "dcm-classifier"
+version = "0.9.9"
+
+[tool.pixi.package.build.backend]
+name = "pixi-build-python"
+version = "*"
+
+[tool.pixi.package.host-dependencies]
+hatchling = "*"
