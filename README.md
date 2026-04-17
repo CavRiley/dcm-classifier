@@ -60,9 +60,18 @@ Install required packages
 
 ## Developer Instructions
 
-For development, clone the repository and install the developer requirements in a virtual environment. Development allows for training of new models using the scripts directory.
+For development, clone the repository and install the developer requirements using pixi. Development allows for training of new models using the scripts directory.
 
-`$ pip install -r requirements_dev.txt`
+```bash
+# Install the development environment
+pixi install
+
+# Run tests
+pixi run test
+
+# Run linting
+pixi run lint
+```
 
 Install pre-commit hooks
 
